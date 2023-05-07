@@ -12,7 +12,9 @@ public enum SegmentType
 public class Segment : MonoBehaviour
 {
     [SerializeField] private Material _trapMaterial;
+
     [SerializeField] private Material _finishMaterial;
+
     [SerializeField] private SegmentType _type;
     public SegmentType Type => _type;
 
@@ -22,15 +24,18 @@ public class Segment : MonoBehaviour
     {
         _meshRenderer = GetComponent<MeshRenderer>();
     }
-
+    
+    //Задает сегмент ловушку.
     public void SetTrap()
     {
         _meshRenderer.enabled = true;
+
         _meshRenderer.material = _trapMaterial;
 
         _type = SegmentType.Trap;
     }
 
+    //Задает пустой сегмент.
     public void SetEmpty()
     {
         _meshRenderer.enabled = false;
@@ -38,6 +43,7 @@ public class Segment : MonoBehaviour
         _type = SegmentType.Empty;
     }
 
+    //Задает сегмент финиша.
     public void SetFinish()
     {
         _meshRenderer.enabled = true;

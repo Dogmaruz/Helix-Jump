@@ -11,6 +11,7 @@ public class FlipMaterial : MonoBehaviour
         Flip();
     }
 
+    // Рандомная смена цвета фона и материалов.
     public void Flip()
     {
         _backgroundImage.color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);

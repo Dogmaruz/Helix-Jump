@@ -5,6 +5,7 @@ public class Floor : MonoBehaviour
 {
     [SerializeField] private List<Segment> _defaultSegments;
 
+    //Добавляем пустые сегменты на этаже.
     public void AddEmptySegment(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -20,6 +21,7 @@ public class Floor : MonoBehaviour
         //}
     }
 
+    //Добавляем ловушки на этаже.
     public void AddRandomTrapSegment(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -34,6 +36,8 @@ public class Floor : MonoBehaviour
             // _defaultSegments.RemoveAt(index);
         }
     }
+
+    //Добавляем сегменты финального этажа.
     public void SetFinishAllSegment()
     {
         for (int i = 0; i < _defaultSegments.Count; i++)
@@ -42,6 +46,7 @@ public class Floor : MonoBehaviour
         }
     }
 
+    //Задаем случайный поворот.
     public void SetRandomRotation()
     {
         transform.eulerAngles = -new Vector3(0, Random.Range(0, 360), 0);

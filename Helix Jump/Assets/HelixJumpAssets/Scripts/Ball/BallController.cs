@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class BallController : OneColliderTrigger
 {
     private BallMovement _movement;
+
     [SerializeField] private UnityEvent _scoreEvent;
 
     [HideInInspector] public UnityEvent<SegmentType> _ballOnTriggerEvent;
@@ -13,6 +14,8 @@ public class BallController : OneColliderTrigger
     {
         _movement = GetComponent<BallMovement>();
     }
+
+    //Проверка на столкновение с разными типами сегментов этажа.
     protected override void OnOneTriggerEnder(Collider other)
     {
         Segment segment = other.GetComponent<Segment>();

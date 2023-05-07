@@ -4,6 +4,7 @@ public abstract class OneColliderTrigger : MonoBehaviour
 {
     private Collider _lastCollider;
 
+    // Проверяет на одно вхождение коллайдера.
     protected virtual void OnOneTriggerEnder(Collider other) { }
 
     private void OnTriggerEnter(Collider other)
@@ -21,7 +22,6 @@ public abstract class OneColliderTrigger : MonoBehaviour
         if (_lastCollider == other)
         {
            _lastCollider = null;
-
         }
     }
 }

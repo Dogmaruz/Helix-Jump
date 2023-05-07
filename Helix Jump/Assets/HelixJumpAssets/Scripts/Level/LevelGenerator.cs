@@ -1,16 +1,17 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class LevelGenerator : MonoBehaviour
 {
-    [SerializeField] private Transform _axis;
-    [SerializeField] private Floor _floorPrefab;
-    [SerializeField] private FloorDestroy _floorDestroyPrefab;
+    [SerializeField] private Transform _axis; //Ось этажей.
+
+    [SerializeField] private Floor _floorPrefab; //Префаб этажа.
+
+    [SerializeField] private FloorDestroy _floorDestroyPrefab; //Префаб разрушеного этажа.
 
     [Header("Settings")]
     [SerializeField] private int _defaultFloorAmount;
+
     [SerializeField] private float _floorHeight;
 
     public float _floorAmount = 0;
@@ -25,11 +26,16 @@ public class LevelGenerator : MonoBehaviour
     public List<FloorDestroy> DestroyFloors => _destroyFloors;
 
     [SerializeField] private int _emptySegmentAmount;
+
     [SerializeField] private int _minTrapSegmentAmount;
+
     [SerializeField] private int _maxTrapSegmentAmount;
+
     private List<Floor> _floors = new List<Floor>();
+
     private List<FloorDestroy> _destroyFloors = new List<FloorDestroy>();
 
+    //Генерация этажей.
     public void Generate(int level)
     {
         DestroyChild();
@@ -41,15 +47,22 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < _floorAmount; i++)
         {
             Floor floor = Instantiate(_floorPrefab, transform);
+
             floor.transform.Translate(0, i * _floorHeight, 0);
+
             floor.name = "Floor " + i;
+
             _floors.Add(floor);
 
             FloorDestroy floorDestroy = Instantiate(_floorDestroyPrefab, transform);
+
             floorDestroy.transform.Translate(0, i * _floorHeight, 0);
+
             floorDestroy.name = "FloorDestroy " + i;
+
             _destroyFloors.Add(floorDestroy);
-            floorDestroy.GameObject().SetActive(false);
+
+            floorDestroy.gameObject.SetActive(false);
 
             if (i == 0)
             {
@@ -59,18 +72,22 @@ public class LevelGenerator : MonoBehaviour
             if (i > 0 && i < _floorAmount - 1)
             {
                 floor.AddEmptySegment(_emptySegmentAmount);
+
                 floor.SetRandomRotation();
+
                 floor.AddRandomTrapSegment(Random.Range(_minTrapSegmentAmount, _maxTrapSegmentAmount + 1));
             }
 
             if (i == _floorAmount - 1)
             {
                 floor.AddEmptySegment(_emptySegmentAmount);
+
                 _lastFloorY = floor.transform.position.y;
             }
         }
     }
 
+    //Удаляет все этажи.
     public void DestroyChild()
     {
         for (int i = 0; i < transform.childCount; i++)
