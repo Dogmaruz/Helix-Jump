@@ -2314,6 +2314,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1058447646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058447639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b42adbd9ae2f9f4fb968b015d5850e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 71c7f11c73cc7d74182d0c65a590fabf, type: 2}
 --- !u!114 &1126534988 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6507256967143647945, guid: 637db2ab11fc4154eb8ec49765cd2ea7, type: 3}
@@ -2995,7 +3008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _markPrefab: {fileID: 2764439921716113853, guid: dd811cda1f46a1e418f97750ea4fdb74, type: 3}
-  _markMaterial: {fileID: 2100000, guid: ebf20e86fc1d5934b9b1d996ad83dcb5, type: 2}
   _ballMaterial: {fileID: 2100000, guid: 16a65815cbb3e584bbc1902c772146f2, type: 2}
   _ballPrefab: {fileID: 649016963}
 --- !u!4 &2023831058 stripped
